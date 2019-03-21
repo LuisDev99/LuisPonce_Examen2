@@ -27,7 +27,7 @@ const todoReducer = (state = defaultState, action) => {
       return newState;
     }
 
-    case ACTIONS.getDetail: {
+    case ACTIONS.Types.GET_DETAIL: {
       let info = _.cloneDeep(state);
       let itemSearch = _.find();
       
