@@ -4,7 +4,7 @@ import _ from "lodash";
 const defaultState = {
   items: [],
   info: [{month:'March', day:'20', max: '38', min: '18'}, {month:'March', day:'21', max: '30', min: '20'}, {month:'March', day:'22', max: '33', min: '17'}, {month:'March', day:'23', max: '31', min: '19'}],
-  weather: [{min: '', max: ''}]
+  weather: {min: '', max: ''}
 };
 
 const todoReducer = (state = defaultState, action) => {
@@ -29,8 +29,9 @@ const todoReducer = (state = defaultState, action) => {
 
     case ACTIONS.Types.GET_DETAIL: {
       let info = _.cloneDeep(state);
-      let itemSearch = _.find();
-      
+      let itemSearch = _.find(state.info, {day: action.payload});
+      let newWeather = {min: itemSearch.min, max: itemSearch.max};
+      return newWeather;
       
     }
 
